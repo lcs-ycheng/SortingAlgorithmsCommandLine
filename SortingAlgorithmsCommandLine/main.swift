@@ -41,12 +41,32 @@ print("-----")
 
 // ----------- Write code to sort the array here -----------
 print("Now sorting the array...")
+var sorted : [Int] = []
+for _ in 1...10 {
+    //find the first lowest
+    var lowestValue = 1
+    var lowestIndex = 0
+    
+    for (index, number) in numbers.enumerated() {
+        if number > lowestValue {
+            lowestValue = number
+            lowestIndex = index
+        }
+    }
+    
+    //move the number to the first index
+    numbers.remove(at: lowestIndex)
+    //insert it into the new array
+    sorted.insert(lowestValue, at: 0)
+    
+}
+
 
 // ----------- Final part of the program, show the sorted list -----------
 print("-----")
 print("The contents of the sorted list:")
-for i in 0...numbers.count - 1 {
-    print("Index \(i), value: \(numbers[i])")
+for i in 0...sorted.count - 1 {
+    print("Index \(i), value: \(sorted[i])")
 }
 print("-----")
 
